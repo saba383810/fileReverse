@@ -5,7 +5,7 @@
 コマンドライン引数に変換したデータのパスを入力すると1行ずつ逆順にしたデータが返ってくるプログラムです。
 
 例<br>
-*sample.txt*
+***sample.txt***
 ```　
 abcdefg
 
@@ -14,7 +14,7 @@ abcdefg
 1a2b3c4d
 ```
 ↓↓↓↓<br>
-*reversedData.txt*
+***reversedData.txt***
 ```　
 gfedcba
 
@@ -23,3 +23,6 @@ gfedcba
 d4c3b2a1
 
 ```
+<コメント><br>
+
+何に使うかはご愛敬ですがcの復習のために作成。
