@@ -43,7 +43,7 @@ int main(int argc, char *argv[]) {
         }
     }
     fclose( fp );
-
+    //もともとある"reversedData.txt"を削除する。
     remove("reversedData.txt");
     for(int i =0; i < lineCnt; i++){
         for(int j = 0; j < LinesNum[i]+1; j++){
