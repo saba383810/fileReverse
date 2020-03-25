@@ -4,7 +4,7 @@
 #define LineMax 100
 
 int main(int argc, char *argv[]) {
-    if(argc != 2){
+    if(argc != 3){
         printf("コマンドライン引数エラー\n引数の数は1つです。もう一度実行しなおしてください。\n");
         return -1;
     }
@@ -44,10 +44,10 @@ int main(int argc, char *argv[]) {
     }
     fclose( fp );
     //もともとある"reversedData.txt"を削除する。
-    remove("reversedData.txt");
+    remove(argv[2]);
     for(int i =0; i < lineCnt; i++){
         for(int j = 0; j < LinesNum[i]+1; j++){
-            outputfile = fopen("reversedData.txt", "a");
+            outputfile = fopen(argv[2], "a");
             if (outputfile == NULL) {          // オープンに失敗した場合
                 printf("書き込み用ファイルオープンエラー\n");         // エラーメッセージを出して
                 return -1;
