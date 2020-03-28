@@ -59,3 +59,8 @@ int main(int argc, char *argv[]) {
     printf("ファイルの書き込みが正常に終了しました。");
     return 0;
 }
+
+
+
+
+
