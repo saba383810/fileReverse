@@ -5,7 +5,7 @@
 
 int main(int argc, char *argv[]) {
     if(argc != 3){
-        printf("コマンドライン引数エラー\n引数の数は1つです。もう一度実行しなおしてください。\n");
+        printf("コマンドライン引数エラー\n引数の数は2つです。もう一度実行しなおしてください。\n");
         return -1;
     }
     FILE * fp;
@@ -30,26 +30,21 @@ int main(int argc, char *argv[]) {
         while(Lines[row][count] != '\0'&& Lines[row][count] != '\n' && Lines[row][count] != '\r') count++;
         //printf("%d番,%d",row,count);
         LinesNum[row] = count;
-        //反転
-        for(int i = 0; count - i > i; i++){
+        //改行文字を抜いた反転
+        for(int i = 0; count - i -1> i; i++){
             char temp = Lines[row][i];
-            Lines[row][i] = Lines[row][count - i];
-            Lines[row][count - i] = temp;
-        }
-    }
-    //正しい位置だけprint
-    for(int i = 0; i < lineCnt; i++){
-        for(int j = 0; j <= LinesNum[i]; j++){
+            Lines[row][i] = Lines[row][count - i-1];
+            Lines[row][count - i-1] = temp;
         }
     }
     fclose( fp );
-    //もともとある"reversedData.txt"を削除する。
+    //もともとあるデータを削除する。
     remove(argv[2]);
     for(int i =0; i < lineCnt; i++){
-        for(int j = 0; j < LinesNum[i]+1; j++){
+        for(int j = 0; j <= LinesNum[i]; j++){
             outputfile = fopen(argv[2], "a");
             if (outputfile == NULL) {          // オープンに失敗した場合
-                printf("書き込み用ファイルオープンエラー\n");         // エラーメッセージを出して
+                printf("書き込み用ファイルオープンエラー\n");         // エラーメッセージを出して終了
                 return -1;
             }
             fprintf(outputfile,"%c", Lines[i][j]); // ファイルに書く
@@ -59,8 +54,3 @@ int main(int argc, char *argv[]) {
     printf("ファイルの書き込みが正常に終了しました。");
     return 0;
 }
-
-
-
-
-
